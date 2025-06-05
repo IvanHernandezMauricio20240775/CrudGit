@@ -7,3 +7,130 @@ a:hover{
     background-color: black;
     color: white;
 }
+#table {
+    width: 100%;
+    border-collapse: separate;
+    /* Permite bordes redondeados y espacio entre filas */
+    border-spacing: 0 15px;
+   
+    margin-top: 20px;
+  }
+  
+  #table thead th {
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-bottom: none;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  #table thead tr th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  #table thead tr th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  /* Estilos para cada fila (tr) del tbody, que actuará como un panel individual */
+  #table tbody tr {
+    background-color: #ffffff;
+  
+    border: 2px solid #28a745;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ 
+    transition: all 0.3s ease;
+  
+  }
+  
+  /* Efecto hover para las filas (paneles) */
+  #table tbody tr:hover {
+    border-color: #0056b3;
+
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+    transform: translateY(-2px);
+
+  }
+  
+  /* Estilos para cada celda (td) dentro de una fila de panel */
+  #table tbody tr td {
+    padding: 15px;
+    text-align: left;
+    color: #495057;
+    border: none;
+   
+  }
+  
+  #table tbody tr td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  
+  }
+  
+  #table tbody tr td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  
+  }
+  
+  #table tbody button {
+    border-radius: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: transparent;
+    border: 2px solid #a2feb8;
+    color: green
+    ;
+  }
+  
+  #table tbody button:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #28a745;
+    ;
+    transform: translateY(-1.5px);
+  }
+
+
+  .AddButton{
+    position: fixed; /*Boton queda flotando*/
+    overflow: auto;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    bottom: 30px;
+    right: 40px;
+    background-color: #209F84;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: transform 0.25s;
+  }
+
+  .AddButton:hover{
+    background-color: #20a2a0;
+    color: white;
+    transform: scale(1.1);
+    /*transform: translateY(-2px);*/
+  }
+
+  .TableScroll{
+    overflow-x: auto;
+  }
+  
+  button{
+    margin: 10px;
+  }

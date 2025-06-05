@@ -10,7 +10,7 @@ async function GetEmployees(){
 
 //DATOS REPRESENTARA AL JSON DONDE VIENEN LA INFORMACION
 function MostrarDatosEmpleados(datos) {
-  const tabla = document.querySelector("#tabla tbody");
+  const tabla = document.querySelector("#table tbody");
 
 
   //para inyectar codigo HTML usmos "innerHTML"
