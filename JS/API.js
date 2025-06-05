@@ -35,5 +35,34 @@ function MostrarDatosEmpleados(datos) {
 
 GetEmployees();
 
+const modal = document.getElementById("mdAgregar")
+const btnClose =  document.getElementById("btnCerrar");
+const btnAdd = document.getElementById("BtnAddUser");
 
 
+btnAdd.addEventListener("click", ()=>{
+  modal.showModal();
+});
+
+btnClose.addEventListener("click", ()=>{
+  modal.close()
+})
+
+
+document.getElementById("frmAgregar", addEventListener("submit"), async e  => {
+  e.prevemtDefaul();
+  const FirstName = document.getElementById("txtNombre").value.trim();
+  const LastName =  document.getElementById("txtApellido").value.trim();
+  const Email =     document.getElementById("txtEmail").value.trim();
+  
+  if(!FirstName || !LastName || !Email){
+    alert("Ingrese los valores correctamente")
+    return;
+  }
+
+  // Llamar a la api para insertar 
+  const Answr = await fetch(Api, {
+    method : "POST"
+
+  });
+});
