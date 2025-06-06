@@ -27,7 +27,7 @@ function MostrarDatosEmpleados(datos) {
           <td>${Employee.Email}</td>
           <td>
            <button> Editar </button>
-           <button> Eliminar </button>
+           <button onclick="DeleteEmployee(${Employee.id})"> Eliminar </button>
          </td>
         </tr>
         `;
@@ -92,3 +92,31 @@ document.getElementById("frmAgregar").addEventListener("submit", async e  => {
 
   }
 });
+
+async function DeleteEmployee(ID_Employee){
+  
+   const Confrim = confirm(Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success" 
+      });
+    }
+  }));
+  if(Confrim == true){
+    await fetch(`${Api}/${ID_Employee}`, {
+      method: "DELETE"
+    });
+
+    GetEmployees();
+  }
+}
