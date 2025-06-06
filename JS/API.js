@@ -1,3 +1,5 @@
+
+
 const Api = "https://retoolapi.dev/Cnm9gT/Employees_SSO";
 
 async function GetEmployees(){
@@ -49,20 +51,44 @@ btnClose.addEventListener("click", ()=>{
 })
 
 
-document.getElementById("frmAgregar", addEventListener("submit"), async e  => {
-  e.prevemtDefaul();
+document.getElementById("frmAgregar").addEventListener("submit", async e  => {
+  e.preventDefault();
   const FirstName = document.getElementById("txtNombre").value.trim();
   const LastName =  document.getElementById("txtApellido").value.trim();
   const Email =     document.getElementById("txtEmail").value.trim();
-  
+  const datos = [FirstName, LastName, Email];
   if(!FirstName || !LastName || !Email){
     alert("Ingrese los valores correctamente")
     return;
   }
 
+
   // Llamar a la api para insertar 
   const Answr = await fetch(Api, {
-    method : "POST"
-
+     method: "POST",
+     headers: {'Content-Type' : 'application/json'},
+     body: JSON.stringify({FirstName, LastName, Email})
   });
+
+  //Verificar respuesta de la Api
+  if(Answr.ok){
+    Swal.fire({
+      title: "Good job!",
+      text: "El Empleado a sido registrado Exitosamente",
+      icon: "success"
+    });
+    
+    document.getElementById("frmAgregar").reset();
+    modal.close();
+    GetEmployees();
+
+  }else{
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "No se puedo realizar el registro del empleado!",
+      footer: '<a href="#">Why do I have this issue?</a>'
+    });
+
+  }
 });
