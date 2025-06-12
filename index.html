@@ -82,7 +82,28 @@
               required
             />
   
-            <button type="submit" class="contrast">Guardar</button>
+            <button type="submit" class="contrast" id="save">Guardar</button>
+          </form>
+        </article>
+      </dialog>
+
+      <dialog id="mdEditar">
+        <article>
+          <header>
+            <a href="#" class="close" id="btnCerrarEditar"></a>
+            <h3>Edicion de Estudiante</h3>
+          </header>
+          <form id="frmEditar">
+            <input type="hidden" id="txtID">
+            <input type="text" id="txtNewNombre" placeholder="Nombre" required />
+            <input type="text" id="txtNewApellido" placeholder="Apellido" required />
+            <input
+              type="email"
+              id="txtNewEmail"
+              placeholder="Correo Electronico"
+              required
+            />
+            <button type="submit" class="contrast" id="save">Actualizar</button>
           </form>
         </article>
       </dialog>
